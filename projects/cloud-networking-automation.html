@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cloud Networking, Automation & Migration - A portfolio showcasing cloud networking strategies, automation, and migration projects.">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <title>Cloud Networking, Automation & Migration</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body class="class-projects">
+  
+  <!-- ***** Navigation ***** -->
+  <header class="header">
+    <div class="row">
+      <nav class="nav">
+        <ul class="nav__items">
+          <li class="nav__item"><a href="../index.html" class="nav__link">Home</a></li>
+        </li>
+        <li class="nav__item dropdown">
+          <a href="../index.html#cloud-projects" class="nav__link">Projects</a>
+          <ul class="dropdown-menu">
+              <li><a href="./cloud-adoption-strategy.html">Cloud Adoption & Strategy</a></li>
+              <li><a href="./cloud-networking-automation.html">Cloud Networking & Automation</a></li>
+              <li><a href="./cloud-strategy-deployment-training.html">Cloud Strategy & Deployment</a></li>
+              <li><a href="./cloud-migration-automation-optimization.html">Cloud Migration & Optimization</a></li>
+              <li><a href="./multi-cloud-automation-cost-analysis.html">Multi-Cloud Automation & Cost Analysis</a></li>
+          </ul>
+      </li>
+        </ul>
+      </nav>
+
+    </div>
+    <div class="header__text-box row">
+      <div class="header__text">
+        <h1 class="heading-primary">
+          <span>Cloud Networking, Automation & Migration</span>
+        </h1>
+        <p>
+          Designed and deployed secure cloud networking environments, 
+          automated provisioning with Infrastructure as Code (IaC), 
+          and executed a proof-of-concept migration.
+        </p>
+      </div>
+    </div>
+  </header>
+  
+  <main class="project-details">
+    
+    <!-- ***** Project 1: Network Traffic Analysis Using Wireshark ***** -->
+    <section>
+      <h2>Project 1: Network Traffic Analysis Using Wireshark</h2>
+      <p>
+        Objective: To analyze network traffic patterns and understand protocol behaviors using Wireshark.<br>
+        <strong>Tools Used:</strong> Wireshark, AWS EC2.
+      </p>
+      <p>
+        <strong>Process:</strong>
+        <br>1. Launched Wireshark and familiarized with its interface (packet list, details, and bytes panes).<br>
+        2. Applied filters to isolate DNS traffic and examined DNS query/response packets.<br>
+        3. Filtered HTTP traffic to analyze GET and POST requests.<br>
+        4. Analyzed IP and TCP headers for source/destination addresses, TTL, and protocol fields.<br>
+        5. Utilized Wireshark's Flow Graph feature to visualize communication flows.
+      </p>
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li>Gained proficiency in using Wireshark for network traffic analysis.</li>
+        <li>Developed an understanding of various network protocols and their behaviors.</li>
+        <li>Learned to identify and analyze different types of network traffic and potential issues.</li>
+      </ul>
+    </section>
+    
+    <!-- ***** Project 2: Infrastructure as Code Implementation ***** -->
+    <section>
+      <h2>Project 2: Infrastructure as Code Implementation</h2>
+      <p>
+        Objective: To automate the provisioning of cloud infrastructure using AWS CLI, CloudFormation, and Python SDKs.<br>
+        <strong>Tools Used:</strong> AWS CLI, AWS CloudFormation, Python (Boto3), AWS Cloud9.
+      </p>
+      <p>
+        <strong>Process:</strong>
+        <br>1. Provisioned a VPC using AWS CLI commands, created and attached an Internet Gateway, and configured routing tables and security groups.<br>
+        2. Designed a CloudFormation template to define infrastructure as code and deployed the stack to create resources.<br>
+        3. Developed a Python script using Boto3 to programmatically create and manage EC2 instances with error handling and logging.
+      </p>
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li>Acquired hands-on experience in automating cloud infrastructure deployment.</li>
+        <li>Learned to write and manage Infrastructure as Code (IaC) using AWS CloudFormation and Boto3.</li>
+        <li>Enhanced scripting skills for cloud resource management.</li>
+      </ul>
+    </section>
+    
+    <!-- ***** Project 3: AWS Migration Environment Setup and Testing ***** -->
+    <section>
+      <h2>Project 3: AWS Migration Environment Setup and Testing</h2>
+      <p>
+        Objective: To build a migration environment in AWS, configure web services, and implement monitoring solutions.<br>
+        <strong>Tools Used:</strong> AWS EC2, Nginx, AWS CloudWatch, Auto Scaling Groups, Load Balancers.
+      </p>
+      <p>
+        <strong>Process:</strong>
+        <br>1. Created security groups, configured launch templates, set up Auto Scaling Groups, and deployed Load Balancers.<br>
+        2. Connected to EC2 instances via SSH, installed Nginx, created AMIs, and tested the configuration via the Load Balancer's DNS.<br>
+        3. Set up CloudWatch dashboards and alarms to monitor key metrics, and simulated outages to validate recovery strategies.
+      </p>
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li>Developed skills in setting up scalable and resilient cloud infrastructures.</li>
+        <li>Gained experience in configuring and managing web services in a cloud environment.</li>
+        <li>Learned to implement monitoring and alerting mechanisms to maintain system reliability.</li>
+      </ul>
+    </section>
+  
+  </main>
+
+  <!-- ***** Footer ***** -->
+
+  <footer role="contentinfo" class="footer">
+    <div class="row">
+      <ul class="footer__social-links">
+        <li class="footer__social-link-item">
+          <a href="https://github.com/nisar848/" title="GitHub Profile">
+            <img src="../images/github.svg" class="footer__social-image" alt="GitHub">
+          </a>
+        </li>
+        <li class="footer__social-link-item">
+          <a href="https://www.linkedin.com/in/zain-nisar98/" title="LinkedIn Profile">
+            <img src="../images/linkedin.svg" class="footer__social-image" alt="LinkedIn">
+          </a>
+        </li>
+      </ul>
+      
+      <p>
+        &copy; 2025 - Portfolio developed by <strong>Zain Nisar</strong>.
+      </p>
+  
+      <p>
+        Template designed & developed by <a href="https://nisar.dev" class="link" target="_blank">Nisar Hassan Naqvi</a>.
+      </p>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top" title="Back to Top">
+    <img src="../images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
+  </a>
+  <script src="../index.js"></script>
+ 
+  <!-- Modal for Enlarged Images -->
+  <div id="image-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img">
+    <div id="caption"></div>
+  
+  </div>
+  
+</body>
+
+</html>
