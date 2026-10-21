@@ -16,7 +16,7 @@ Relative asset and navigation paths also support project-site previews. `.nojeky
 
 ## Content and interactions
 
-- `index.html`: Azure-first positioning, clickable reference architecture, five project cards, architecture approach, biography, and contact links.
+- `index.html`: Azure-first positioning, clickable reference architecture, five project cards, biography, and contact links.
 - `index.css`: responsive shared visual system and case-study layout.
 - `index.js`: accessible navigation, project filters, architecture descriptions, current copyright year, and keyboard-accessible project image dialogs.
 - `projects/`: original project scope and content, with updated presentation and navigation.

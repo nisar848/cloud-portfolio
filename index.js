@@ -9,9 +9,9 @@ if (menu && navigation) {
   document.addEventListener('click', event => { if (!navigation.contains(event.target) && !menu.contains(event.target)) closeMenu(); });
 }
 const descriptions = {
-  app: 'App Service reduces server maintenance. Choose it when managed hosting fits the application’s runtime and operational needs.',
-  identity: 'Managed identity lets a workload request Microsoft Entra tokens without storing credentials. Resource permissions still need explicit, scoped access.',
-  data: 'Azure SQL provides managed relational storage. Evaluate access controls, connectivity, backup requirements, and cost before choosing a deployment tier.'
+  app: 'App Service hosts application code without managing the underlying servers.',
+  identity: 'Managed identity uses Microsoft Entra tokens instead of stored credentials. Access still requires scoped permissions.',
+  data: 'Azure SQL provides managed relational storage. Choose connectivity, backup, and pricing options for the workload.'
 };
 document.querySelectorAll('[data-node]').forEach(button => button.addEventListener('click', () => {
   document.querySelectorAll('[data-node]').forEach(node => { const selected = node === button; node.classList.toggle('selected', selected); node.setAttribute('aria-pressed', String(selected)); });
