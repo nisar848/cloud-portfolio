@@ -1,85 +1,40 @@
-(function() {
-  // Keyboard focus outline functionality
-  const handleFirstTab = (e) => {
-    if (e.key === "Tab") {
-      document.body.classList.add("user-is-tabbing");
-      window.removeEventListener("keydown", handleFirstTab);
-      window.addEventListener("mousedown", handleMouseDownOnce);
-      window.addEventListener("touchstart", handleMouseDownOnce);
-    }
-  };
-
-  const handleMouseDownOnce = () => {
-    document.body.classList.remove("user-is-tabbing");
-    window.removeEventListener("mousedown", handleMouseDownOnce);
-    window.removeEventListener("touchstart", handleMouseDownOnce);
-    window.addEventListener("keydown", handleFirstTab);
-  };
-
-  window.addEventListener("keydown", handleFirstTab);
-
-  // Back-to-top button functionality
-  const backToTopButton = document.querySelector(".back-to-top");
-  let isBackToTopRendered = false;
-
-  if (backToTopButton) {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // Optionally, you can use CSS classes for transitions instead of inline styles
-    const alterStyles = (isVisible) => {
-      backToTopButton.style.visibility = isVisible ? "visible" : "hidden";
-      backToTopButton.style.opacity = isVisible ? 1 : 0;
-      backToTopButton.style.transform = isVisible && !prefersReducedMotion ? "scale(1)" : "none";
-    };
-
-    // Debounce utility to limit scroll handler calls
-    const debounce = (func, wait) => {
-      let timeout;
-      return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(null, args), wait);
-      };
-    };
-
-    const handleScroll = () => {
-      const shouldBeVisible = window.scrollY > 700;
-      if (shouldBeVisible !== isBackToTopRendered) {
-        isBackToTopRendered = shouldBeVisible;
-        alterStyles(isBackToTopRendered);
-      }
-    };
-
-    window.addEventListener("scroll", debounce(handleScroll, 50), { passive: true });
-  }
-
-  // Wait for the DOM to load
-document.addEventListener("DOMContentLoaded", function () {
-  // Get the modal elements
-  const modal = document.getElementById("image-modal");
-  const modalImg = document.getElementById("modal-img");
-  const captionText = document.getElementById("caption");
-  const closeBtn = document.querySelector(".modal .close");
-
-  // Add click event to all images inside .project-images
-  document.querySelectorAll('.project-images img').forEach(img => {
-    img.style.cursor = "pointer"; // Indicate the image is clickable
-    img.addEventListener('click', function () {
-      modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.textContent = this.alt; // Use the image's alt text as a caption
-    });
+'use strict';
+const menu = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#site-nav');
+if (menu && navigation) {
+  const closeMenu = () => { menu.setAttribute('aria-expanded', 'false'); navigation.classList.remove('open'); };
+  menu.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); navigation.classList.toggle('open', open); });
+  navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && navigation.classList.contains('open')) { closeMenu(); menu.focus(); } });
+  document.addEventListener('click', event => { if (!navigation.contains(event.target) && !menu.contains(event.target)) closeMenu(); });
+}
+const descriptions = {
+  app: 'App Service reduces server maintenance. Choose it when managed hosting fits the application’s runtime and operational needs.',
+  identity: 'Managed identity lets a workload request Microsoft Entra tokens without storing credentials. Resource permissions still need explicit, scoped access.',
+  data: 'Azure SQL provides managed relational storage. Evaluate access controls, connectivity, backup requirements, and cost before choosing a deployment tier.'
+};
+document.querySelectorAll('[data-node]').forEach(button => button.addEventListener('click', () => {
+  document.querySelectorAll('[data-node]').forEach(node => { const selected = node === button; node.classList.toggle('selected', selected); node.setAttribute('aria-pressed', String(selected)); });
+  document.querySelector('#node-description').textContent = descriptions[button.dataset.node];
+}));
+const cards = [...document.querySelectorAll('[data-categories]')];
+document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
+  document.querySelectorAll('[data-filter]').forEach(filter => { const active = filter === button; filter.classList.toggle('active', active); filter.setAttribute('aria-pressed', String(active)); });
+  const category = button.dataset.filter;
+  cards.forEach(card => { card.hidden = category !== 'all' && !card.dataset.categories.split(' ').includes(category); });
+  const count = cards.filter(card => !card.hidden).length;
+  document.querySelector('#filter-summary').textContent = `Showing ${count} ${category === 'all' ? '' : category === 'aws' ? 'AWS ' : category === 'azure' ? 'Azure ' : 'strategy '}project${count === 1 ? '' : 's'}`;
+}));
+document.querySelectorAll('[data-year]').forEach(element => { element.textContent = new Date().getFullYear(); });
+const dialog = document.querySelector('.image-dialog');
+if (dialog && typeof dialog.showModal === 'function') {
+  document.querySelectorAll('.project-images img').forEach(image => {
+    const button = document.createElement('button');
+    button.type = 'button'; button.className = 'image-expand'; button.style.cssText = 'border:0;background:transparent;padding:0;width:100%;cursor:zoom-in';
+    button.setAttribute('aria-label', `Enlarge ${image.alt}`);
+    image.replaceWith(button); button.append(image);
+    button.addEventListener('click', () => { dialog.querySelector('img').src = image.src; dialog.querySelector('img').alt = image.alt; dialog.querySelector('p').textContent = image.alt; dialog.showModal(); });
   });
-
-  // Close the modal when the close button is clicked
-  closeBtn.addEventListener('click', function () {
-    modal.style.display = "none";
-  });
-
-  // Also close the modal if the user clicks anywhere outside the image
-  modal.addEventListener('click', function (e) {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-});
-})();
+  dialog.querySelector('button').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => { if (event.target === dialog) { const bounds = dialog.getBoundingClientRect(); if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close(); } });
+}
