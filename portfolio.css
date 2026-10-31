@@ -3,3 +3,5 @@
 .work-meta{text-transform:none;letter-spacing:0;font-size:14px;margin:0 0 18px}.contact-section .section-label,.contact-section p:not(.section-label){color:#fff}.intro-name{animation:intro-reveal .6s ease-out both}@keyframes intro-reveal{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
 
 #filter-summary{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.hero h1,.hero .intro,.hero-actions{animation:intro-reveal .55s ease-out both}.hero .intro{animation-delay:.08s}.hero-actions{animation-delay:.14s}@media(prefers-reduced-motion:reduce){.hero h1,.hero .intro,.hero-actions{animation:none}}
+
+.masthead .brand{animation:intro-reveal .55s ease-out both}@media(prefers-reduced-motion:reduce){.masthead .brand{animation:none}}
