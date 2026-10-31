@@ -16,14 +16,15 @@ Relative asset and navigation paths also support project-site previews. `.nojeky
 
 ## Content and interactions
 
-- `index.html`: Azure-first positioning, clickable reference architecture, five project cards, biography, and contact links.
-- `index.css`: responsive shared visual system and case-study layout.
+- `index.html`: cloud engineering introduction, filterable project index, biography, and contact links.
+- `portfolio.css`: homepage visual system and responsive layout.
+- `index.css`: shared styling for existing case-study pages.
 - `index.js`: accessible navigation, project filters, architecture descriptions, current copyright year, and keyboard-accessible project image dialogs.
 - `projects/`: original project scope and content, with updated presentation and navigation.
 - `files/` and `images/`: retained resume, operational guides, deployment screenshot, project diagrams, and portrait.
 - `assets/favicon.svg`: self-contained cloud-themed favicon.
 
-The interactive architecture is explicitly illustrative, not a live deployment. Project pages identify BallotOnline work as academic case studies and learning environments. No certification badges, client testimonials, deployment metrics, or new production experience have been invented.
+Project pages identify BallotOnline work as academic case studies and learning environments. No certification badges, client testimonials, deployment metrics, or new production experience have been invented.
 
 Future project evidence should include source code, validation results, dated deployment captures, and real cost comparisons when available. Do not present sample or historical telemetry as live.
 
